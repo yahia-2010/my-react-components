@@ -1,10 +1,8 @@
 {
-  "name": "@Yahia-2010/my-react-components",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/Yahia-2010"
-  },
+  "name": "@yahia-2010/my-react-components",
+  "repository": "git://github.com/yahia-2010/my-react-components.git",
   "version": "0.0.1",
-  "description": "A simple template for a custom React component library",
+  "description": "A simple react component library",
   "scripts": {
     "rollup": "rollup -c"
   },
