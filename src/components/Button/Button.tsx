@@ -28,11 +28,13 @@ const Button: React.FC<ButtonProps> = ({
   bg,
   textColor,
   roundness,
+  shadow,
 }) => {
   const generatedSize = sizeGenerator(size);
   const generatedBg = bgGenerator(bg);
   const generatedTextColor = textColorGenerator(textColor);
   const generatedRoundness = roundnessGenerator(roundness);
+  const generatedShadow = shadowGenerator(shadow);
 
   return (
     <button
@@ -42,6 +44,7 @@ const Button: React.FC<ButtonProps> = ({
         color: generatedTextColor,
         backgroundColor: generatedBg,
         borderRadius: generatedRoundness,
+        boxShadow: generatedShadow,
       }}
     >
       {children}

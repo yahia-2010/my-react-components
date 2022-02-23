@@ -38,3 +38,43 @@ export const RoundByNumber = () => (
     Hello Button
   </Button>
 );
+
+// Shadows
+
+export const ShadowSm = () => (
+  <Button size="md" shadow={{ size: "sm", color: "#eee" }}>
+    Hello Button!
+  </Button>
+);
+
+export const ShadowMd = () => (
+  <Button size="md" shadow={{ size: "md", color: "#eee" }}>
+    Hello Button!
+  </Button>
+);
+
+export const ShadowLg = () => (
+  <Button size="md" shadow={{ size: "lg", color: "#eee" }}>
+    Hello Button!
+  </Button>
+);
+
+export const ShadowXl = () => (
+  <Button size="md" shadow={{ size: "xl", color: "#eee" }}>
+    Hello Button!
+  </Button>
+);
+
+// BG & text colors
+
+export const DarkButton = () => (
+  <Button size="md" bg="#393e41" textColor="#fff">
+    Hello Button!
+  </Button>
+);
+
+export const LightButton = () => (
+  <Button size="md" bg="#fbefb" textColor="#000">
+    Hello Button!
+  </Button>
+);

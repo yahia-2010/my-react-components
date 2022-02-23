@@ -26,7 +26,17 @@ export const roundnessGenerator = (
   return generatedRoundness;
 };
 
-export const shadowGenerator = (roundness: sizedColor | undefined): string => {
-  const generatedShadow = "";
+export const shadowGenerator = (shadow: sizedColor | undefined): string => {
+  const generatedShadow = `0 5px 10px ${
+    shadow?.size === "sm"
+      ? "-2.5px"
+      : shadow?.size === "md"
+      ? "-1px"
+      : shadow?.size === "lg"
+      ? "1px"
+      : shadow?.size === "xl"
+      ? "12.5px"
+      : ""
+  } ${shadow?.color} `;
   return generatedShadow;
 };

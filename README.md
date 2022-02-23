@@ -1,9 +1,19 @@
-# my-react-components
-### A React Component Library
+# My-React-Components
+### A Component Library Made With React and TypeScript
 
-Made with : 
-* React
-* TypeScript
-* Rollup
+---
 
-and published with npm github packages.
+#### The used technologies : 
+- React
+- TypeScript
+- Rollup ( for bundling the package )
+- Jest ( for testing )
+- Storybook ( for visualizing the components )
+
+---
+
+#### The current existing components in the library : 
+- Button
+
+
+
