@@ -11,3 +11,7 @@ export type borderStyles =
   | "ridge"
   | "inset"
   | "outset";
+
+export type stringStyle = string | undefined;
+
+export type sizedColor = { size: sizes; color: string };
