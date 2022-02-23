@@ -6,4 +6,4 @@ Made with :
 * TypeScript
 * Rollup
 
-and published in npm github packages.
+and published with npm github packages.
