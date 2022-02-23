@@ -15,3 +15,9 @@ export type borderStyles =
 export type stringStyle = string | undefined;
 
 export type sizedColor = { size: sizes; color: string };
+
+export type numberSizedColor = {
+  size: numberSizes;
+  color: string;
+  style: borderStyles;
+};

@@ -1,23 +1,30 @@
 import React, { Children } from "react";
 import { StylingInterface } from "../../global/interfaces/stylingInterface";
-import { sizes, numberSizes, sizedColor } from "../../global/types/types";
+import {
+  sizes,
+  numberSizes,
+  sizedColor,
+  numberSizedColor,
+} from "../../global/types/types";
 import { sizeGenerator } from "./ButtonPropsGenerators";
 import {
   bgGenerator,
   textColorGenerator,
   roundnessGenerator,
   shadowGenerator,
+  boredGenerator,
 } from "../../global/generators/generators";
 import "./Button.css";
 
 export interface ButtonProps {
   styling?: StylingInterface;
-  func?: (params: any) => void;
+  func?: () => void;
   size?: sizes;
   bg?: string;
   textColor?: string;
   shadow?: sizedColor;
   roundness?: numberSizes;
+  border?: numberSizedColor;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -29,22 +36,25 @@ const Button: React.FC<ButtonProps> = ({
   textColor,
   roundness,
   shadow,
+  border,
 }) => {
   const generatedSize = sizeGenerator(size);
   const generatedBg = bgGenerator(bg);
   const generatedTextColor = textColorGenerator(textColor);
   const generatedRoundness = roundnessGenerator(roundness);
   const generatedShadow = shadowGenerator(shadow);
+  const generatedBorder = boredGenerator(border);
 
   return (
     <button
       onClick={func}
       style={{
-        padding: !generatedSize ? "0.75rem 1.1rem" : generatedSize,
-        color: generatedTextColor,
-        backgroundColor: generatedBg,
-        borderRadius: generatedRoundness,
-        boxShadow: generatedShadow,
+        ...generatedSize,
+        ...generatedTextColor,
+        ...generatedBg,
+        ...generatedRoundness,
+        ...generatedShadow,
+        ...generatedBorder,
       }}
     >
       {children}

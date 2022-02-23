@@ -1,18 +1,23 @@
-import { stringStyle, sizes, numberSizes, sizedColor } from "../types/types";
+import {
+  stringStyle,
+  numberSizes,
+  sizedColor,
+  numberSizedColor,
+} from "../types/types";
 
-export const bgGenerator = (bg: stringStyle): stringStyle => {
+export const bgGenerator = (bg: stringStyle): object => {
   const generatedBg = bg;
-  return generatedBg;
+  return { backgroundColor: generatedBg };
 };
 
-export const textColorGenerator = (color: stringStyle): stringStyle => {
+export const textColorGenerator = (color: stringStyle): object => {
   const generatedTextColor = color;
-  return generatedTextColor;
+  return { color: generatedTextColor };
 };
 
 export const roundnessGenerator = (
   roundness: numberSizes | undefined
-): string => {
+): object => {
   const generatedRoundness =
     roundness === "sm"
       ? "4px"
@@ -23,10 +28,10 @@ export const roundnessGenerator = (
       : roundness === "xl"
       ? "20px"
       : `${roundness}px`;
-  return generatedRoundness;
+  return { borderRadius: generatedRoundness };
 };
 
-export const shadowGenerator = (shadow: sizedColor | undefined): string => {
+export const shadowGenerator = (shadow: sizedColor | undefined): object => {
   const generatedShadow = `0 5px 10px ${
     shadow?.size === "sm"
       ? "-2.5px"
@@ -38,5 +43,22 @@ export const shadowGenerator = (shadow: sizedColor | undefined): string => {
       ? "12.5px"
       : ""
   } ${shadow?.color} `;
-  return generatedShadow;
+  return { boxShadow: generatedShadow };
+};
+
+export const boredGenerator = (
+  border: numberSizedColor | undefined
+): object => {
+  const generatedBorder = `${
+    border?.size === "sm"
+      ? 1
+      : border?.size === "md"
+      ? 2
+      : border?.size === "lg"
+      ? 4
+      : border?.size === "xl"
+      ? 7.5
+      : border?.size
+  }px ${border?.color} ${border?.style}`;
+  return { border: generatedBorder };
 };
