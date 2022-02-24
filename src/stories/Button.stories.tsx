@@ -1,125 +1,160 @@
 import { Button } from "../components";
 
 export default {
-  title: "Button",
+  title: "MyReactComponents/Buttons/Button",
   component: Button,
+  argTypes: { func: { action: "handleClick" } },
 };
 
+// Template
+
+const Template: any = (args: object) => (
+  <Button {...args}>Hello Button!</Button>
+);
+
 // Sizes
-export const Small = () => <Button size="sm">Hello Button!</Button>;
-export const Medium = () => <Button size="md">Hello Button!</Button>;
-export const Large = () => <Button size="lg">Hello Button!</Button>;
-export const XLarge = () => <Button size="xl">Hello Button!</Button>;
+
+export const Small = Template.bind({});
+Small.args = {
+  size: "sm",
+};
+
+export const Medium = Template.bind({});
+Medium.args = {
+  size: "md",
+};
+
+export const Large = Template.bind({});
+Large.args = {
+  size: "lg",
+};
+
+export const XLarge = Template.bind({});
+XLarge.args = {
+  size: "xl",
+};
 
 // Roundness
-export const RoundSm = () => <Button roundness="sm">Hello Button!</Button>;
-export const RoundMd = () => <Button roundness="md">Hello Button!</Button>;
-export const RoundLg = () => <Button roundness="lg">Hello Button!</Button>;
-export const RoundXl = () => <Button roundness="xl">Hello Button!</Button>;
-export const RoundByNumber = () => <Button roundness={5}>Hello Button</Button>;
+
+export const RoundSm = Template.bind({});
+RoundSm.args = {
+  roundness: "sm",
+};
+
+export const RoundMd = Template.bind({});
+RoundMd.args = {
+  roundness: "md",
+};
+
+export const RoundLg = Template.bind({});
+RoundLg.args = {
+  roundness: "lg",
+};
+
+export const RoundXl = Template.bind({});
+RoundXl.args = {
+  roundness: "xl",
+};
+
+export const RoundByNumber = Template.bind({});
+RoundByNumber.args = {
+  roundness: 30,
+};
 
 // Shadows
 
-export const ShadowSm = () => (
-  <Button shadow={{ size: "sm", color: "#eee" }}>Hello Button!</Button>
-);
+export const ShadowSm = Template.bind({});
+ShadowSm.args = {
+  shadow: { size: "sm", color: "#eee" },
+};
 
-export const ShadowMd = () => (
-  <Button shadow={{ size: "md", color: "#eee" }}>Hello Button!</Button>
-);
+export const ShadowMd = Template.bind({});
+ShadowMd.args = {
+  shadow: { size: "md", color: "#eee" },
+};
 
-export const ShadowLg = () => (
-  <Button shadow={{ size: "lg", color: "#eee" }}>Hello Button!</Button>
-);
+export const ShadowLg = Template.bind({});
+ShadowLg.args = {
+  shadow: { size: "lg", color: "#eee" },
+};
 
-export const ShadowXl = () => (
-  <Button shadow={{ size: "xl", color: "#eee" }}>Hello Button!</Button>
-);
+export const ShadowXl = Template.bind({});
+ShadowXl.args = {
+  shadow: { size: "xl", color: "#eee" },
+};
 
-// BG & text colors
+// Background & Text colors
 
-export const DarkButton = () => (
-  <Button bg="#393e41" textColor="#fff">
-    Hello Button!
-  </Button>
-);
+export const DarkButton = Template.bind({});
+DarkButton.args = {
+  bg: "#393e41",
+  textColor: "#fff",
+};
 
-export const LightButton = () => (
-  <Button bg="#fbefb" textColor="#000">
-    Hello Button!
-  </Button>
-);
+export const LightButton = Template.bind({});
+DarkButton.args = {
+  bg: "#fbefb",
+  textColor: "#000",
+};
 
 // Border
 
-export const BorderSolidSm = () => (
-  <Button border={{ size: "sm", color: "#000", style: "solid" }}>
-    Hello Button!
-  </Button>
-);
+export const BorderSolidSm = Template.bind({});
+BorderSolidSm.args = {
+  border: { size: "sm", color: "#000", style: "solid" },
+};
 
-export const BorderSolidMd = () => (
-  <Button border={{ size: "md", color: "#000", style: "solid" }}>
-    Hello Button!
-  </Button>
-);
+export const BorderSolidMd = Template.bind({});
+BorderSolidMd.args = {
+  border: { size: "md", color: "#000", style: "solid" },
+};
 
-export const BorderSolidLg = () => (
-  <Button border={{ size: "lg", color: "#000", style: "solid" }}>
-    Hello Button!
-  </Button>
-);
+export const BorderSolidLg = Template.bind({});
+BorderSolidLg.args = {
+  border: { size: "lg", color: "#000", style: "solid" },
+};
 
-export const BorderSolidXl = () => (
-  <Button border={{ size: "xl", color: "#000", style: "solid" }}>
-    Hello Button!
-  </Button>
-);
+export const BorderSolidXl = Template.bind({});
+BorderSolidXl.args = {
+  border: { size: "xl", color: "#000", style: "solid" },
+};
 
-export const BorderSolidByNumber = () => (
-  <Button border={{ size: 1.5, color: "#000", style: "solid" }}>
-    Hello Button!
-  </Button>
-);
+export const BorderSolidByNumber = Template.bind({});
+BorderSolidByNumber.args = {
+  border: { size: 5, color: "#000", style: "solid" },
+};
 
-export const BorderDotted = () => (
-  <Button border={{ size: "md", color: "#000", style: "dotted" }}>
-    Hello Button!
-  </Button>
-);
+export const BorderDotted = Template.bind({});
+BorderDotted.args = {
+  border: { size: "md", color: "#000", style: "dotted" },
+};
 
-export const BorderDashed = () => (
-  <Button border={{ size: "md", color: "#000", style: "dashed" }}>
-    Hello Button!
-  </Button>
-);
+export const BorderDashed = Template.bind({});
+BorderDashed.args = {
+  border: { size: "md", color: "#000", style: "dashed" },
+};
 
-export const BorderDouble = () => (
-  <Button border={{ size: "md", color: "#000", style: "double" }}>
-    Hello Button!
-  </Button>
-);
+export const BorderDouble = Template.bind({});
+BorderDouble.args = {
+  border: { size: "md", color: "#000", style: "double" },
+};
 
-export const BorderGroove = () => (
-  <Button border={{ size: "md", color: "#eee", style: "groove" }}>
-    Hello Button!
-  </Button>
-);
+export const BorderGroove = Template.bind({});
+BorderGroove.args = {
+  border: { size: "md", color: "#eee", style: "groove" },
+};
 
-export const BorderRidge = () => (
-  <Button border={{ size: "md", color: "#eee", style: "ridge" }}>
-    Hello Button!
-  </Button>
-);
+export const BorderRidge = Template.bind({});
+BorderRidge.args = {
+  border: { size: "md", color: "#eee", style: "ridge" },
+};
 
-export const BorderInset = () => (
-  <Button border={{ size: "md", color: "#eee", style: "inset" }}>
-    Hello Button!
-  </Button>
-);
+export const BorderInset = Template.bind({});
+BorderInset.args = {
+  border: { size: "md", color: "#eee", style: "inset" },
+};
 
-export const BorderOutset = () => (
-  <Button border={{ size: "md", color: "#eee", style: "outset" }}>
-    Hello Button!
-  </Button>
-);
+export const BorderOutset = Template.bind({});
+BorderOutset.args = {
+  border: { size: "md", color: "#eee", style: "outset" },
+};

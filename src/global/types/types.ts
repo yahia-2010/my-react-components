@@ -19,5 +19,10 @@ export type sizedColor = { size: sizes; color: string };
 export type numberSizedColor = {
   size: numberSizes;
   color: string;
+};
+
+export type borderType = {
+  size: numberSizes;
+  color: string;
   style: borderStyles;
 };

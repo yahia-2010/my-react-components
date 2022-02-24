@@ -2,7 +2,7 @@ import {
   stringStyle,
   numberSizes,
   sizedColor,
-  numberSizedColor,
+  borderType,
 } from "../types/types";
 
 export const bgGenerator = (bg: stringStyle): object => {
@@ -40,15 +40,13 @@ export const shadowGenerator = (shadow: sizedColor | undefined): object => {
       : shadow?.size === "lg"
       ? "1px"
       : shadow?.size === "xl"
-      ? "12.5px"
+      ? "2.5px"
       : ""
   } ${shadow?.color} `;
   return { boxShadow: generatedShadow };
 };
 
-export const boredGenerator = (
-  border: numberSizedColor | undefined
-): object => {
+export const boredGenerator = (border: borderType | undefined): object => {
   const generatedBorder = `${
     border?.size === "sm"
       ? 1
@@ -57,7 +55,7 @@ export const boredGenerator = (
       : border?.size === "lg"
       ? 4
       : border?.size === "xl"
-      ? 7.5
+      ? 6
       : border?.size
   }px ${border?.color} ${border?.style}`;
   return { border: generatedBorder };

@@ -1,7 +1,9 @@
-button {
+.IconButton {
   border-radius: 50%;
   background-color: #eee;
   display: flex;
   justify-content: center;
   align-items: center;
+  border: 0;
+  font-size: 1.02em;
 }

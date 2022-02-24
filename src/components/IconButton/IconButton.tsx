@@ -1,5 +1,5 @@
 import React, { ReactElement } from "react";
-import { sizes, sizedColor, numberSizedColor } from "../../global/types/types";
+import { sizes, sizedColor, borderType } from "../../global/types/types";
 import { StylingInterface } from "../../global/interfaces/stylingInterface";
 import {
   boredGenerator,
@@ -17,7 +17,7 @@ export interface IconButtonProps {
   size?: sizes;
   bg?: string;
   shadow?: sizedColor;
-  border?: numberSizedColor;
+  border?: borderType;
   textColor?: string;
 }
 
@@ -47,6 +47,7 @@ const IconButton: React.FC<IconButtonProps> = ({
         ...generatedSize,
         ...generatedTextColor,
       }}
+      className="IconButton"
     >
       {icon}
     </button>

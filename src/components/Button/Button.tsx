@@ -56,6 +56,7 @@ const Button: React.FC<ButtonProps> = ({
         ...generatedShadow,
         ...generatedBorder,
       }}
+      className="Button"
     >
       {children}
     </button>
