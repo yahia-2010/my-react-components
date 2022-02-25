@@ -15,5 +15,7 @@
 #### The current existing components in the library : 
 - Button
 - Icon Button
+- Floating Button
+- Stack
 
 
