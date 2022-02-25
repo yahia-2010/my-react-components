@@ -7,12 +7,14 @@ interface coords {
     right?: number;
 }
 
+declare type directions = "vertical" | "horizontal";
 declare type sizes = "sm" | "md" | "lg" | "xl";
 declare type hPositions = "top" | "bottom";
 declare type vPosition = "left" | "right";
 declare type doublePositions = `${hPositions} ${vPosition}`;
 declare type absolutePositions = doublePositions | coords;
 declare type numberSizes = sizes | number;
+declare type numberSizesFull = numberSizes | "full";
 declare type borderStyles = "solid" | "dotted" | "dashed" | "double" | "groove" | "ridge" | "inset" | "outset";
 declare type sizedColor = {
     size: sizes;
@@ -24,33 +26,53 @@ declare type borderType = {
     style: borderStyles;
 };
 
-interface StylingInterface {
-    size?: sizes;
-    bg?: string;
-    shadow?: sizedColor;
-    border?: borderType;
-    textColor?: string;
-    roundness?: numberSizes | "full";
-}
-
 interface ButtonProps {
     func?: () => void;
-    styling?: StylingInterface;
+    border?: borderType;
+    size?: sizes;
+    textColor?: string;
+    bg?: string;
+    roundness?: numberSizes;
+    shadow?: sizedColor;
 }
 declare const Button: React.FC<ButtonProps>;
 
 interface IconButtonProps {
     icon: ReactElement;
     func?: () => void;
-    styling?: StylingInterface;
+    border?: borderType;
+    size?: sizes;
+    textColor?: string;
+    bg?: string;
+    roundness?: numberSizes;
+    shadow?: sizedColor;
 }
 declare const IconButton: React.FC<IconButtonProps>;
 
 interface FloatingButtonProps {
     position?: absolutePositions;
-    styling?: StylingInterface;
+    border?: borderType;
+    size?: sizes;
+    textColor?: string;
+    bg?: string;
+    roundness?: numberSizes;
+    shadow?: sizedColor;
     func?: () => void;
 }
 declare const FloatingButton: React.FC<FloatingButtonProps>;
 
-export { Button, FloatingButton, IconButton };
+interface StackProps {
+    border?: borderType;
+    width?: numberSizesFull;
+    textColor?: string;
+    bg?: string;
+    roundness?: numberSizes;
+    shadow?: sizedColor;
+    direction?: directions;
+    wrap?: boolean;
+    gap?: numberSizes;
+    centering?: boolean;
+}
+declare const Stack: React.FC<StackProps>;
+
+export { Button, FloatingButton, IconButton, Stack };
