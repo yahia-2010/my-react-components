@@ -7,13 +7,7 @@ import {
   borderType,
 } from "../../global/types/types";
 import { sizeGenerator } from "./ButtonStylesGenerators";
-import {
-  bgGenerator,
-  textColorGenerator,
-  roundnessGenerator,
-  shadowGenerator,
-  boredGenerator,
-} from "../../global/generators/generators";
+import { stylesGenerator } from "../../global/generators/generators";
 import "./Button.css";
 
 export interface ButtonProps {
@@ -23,22 +17,13 @@ export interface ButtonProps {
 
 const Button: React.FC<ButtonProps> = ({ children, styling, func }) => {
   const generatedSize = sizeGenerator(styling?.size);
-  const generatedBg = bgGenerator(styling?.bg);
-  const generatedTextColor = textColorGenerator(styling?.textColor);
-  const generatedRoundness = roundnessGenerator(styling?.roundness);
-  const generatedShadow = shadowGenerator(styling?.shadow);
-  const generatedBorder = boredGenerator(styling?.border);
-
+  const generatedStyles = stylesGenerator(styling!);
   return (
     <button
       onClick={func}
       style={{
         ...generatedSize,
-        ...generatedTextColor,
-        ...generatedBg,
-        ...generatedRoundness,
-        ...generatedShadow,
-        ...generatedBorder,
+        ...generatedStyles,
       }}
       className="Button"
     >

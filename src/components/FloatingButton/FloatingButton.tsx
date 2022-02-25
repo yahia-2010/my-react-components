@@ -1,13 +1,7 @@
 import React from "react";
 import { absolutePositions } from "../../global/types/types";
 import { StylingInterface } from "../../global/interfaces/stylingInterface";
-import {
-  bgGenerator,
-  textColorGenerator,
-  roundnessGenerator,
-  shadowGenerator,
-  boredGenerator,
-} from "../../global/generators/generators";
+import { stylesGenerator } from "../../global/generators/generators";
 import {
   sizeGenerator,
   positionGenerator,
@@ -27,11 +21,7 @@ const FloatingButton: React.FC<FloatingButtonProps> = ({
   func,
 }) => {
   const generatedSize = sizeGenerator(styling?.size);
-  const generatedBg = bgGenerator(styling?.bg);
-  const generatedTextColor = textColorGenerator(styling?.textColor);
-  const generatedRoundness = roundnessGenerator(styling?.roundness);
-  const generatedShadow = shadowGenerator(styling?.shadow);
-  const generatedBorder = boredGenerator(styling?.border);
+  const generatedStyles = stylesGenerator(styling!);
   const generatedPosition = positionGenerator(position);
 
   return (
@@ -39,13 +29,9 @@ const FloatingButton: React.FC<FloatingButtonProps> = ({
       className="floatingButton"
       onClick={func}
       style={{
-        ...generatedBg,
-        ...generatedBorder,
-        ...generatedRoundness,
-        ...generatedShadow,
-        ...generatedSize,
-        ...generatedTextColor,
         ...generatedPosition,
+        ...generatedStyles,
+        ...generatedSize,
       }}
     >
       {children}

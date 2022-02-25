@@ -96,7 +96,7 @@ DarkButton.args = {
 };
 
 export const LightButton = Template.bind({});
-DarkButton.args = {
+LightButton.args = {
   styling: { bg: "#fbefb", textColor: "#000" },
 };
 

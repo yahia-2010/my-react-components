@@ -1,5 +1,7 @@
 import { coords } from "../interfaces/coordsInterfaces";
 
+export type directions = "vertical" | "horizontal";
+
 export type sizes = "sm" | "md" | "lg" | "xl";
 
 export type hPositions = "top" | "bottom";

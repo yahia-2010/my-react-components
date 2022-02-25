@@ -122,3 +122,8 @@ export const BorderOutset = Template.bind({});
 BorderOutset.args = {
   styling: { border: { size: "sm", color: "#eee", style: "outset" } },
 };
+
+export const Round = Template.bind({});
+Round.args = {
+  styling: { roundness: "sm" },
+};
