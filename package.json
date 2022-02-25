@@ -1,7 +1,7 @@
 {
   "name": "@yahia-2010/my-react-components",
   "repository": "git://github.com/yahia-2010/my-react-components.git",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "A simple react component library",
   "scripts": {
     "rollup": "rollup -c",

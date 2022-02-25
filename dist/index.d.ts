@@ -1,30 +1,41 @@
 import React, { ReactElement } from 'react';
 
-interface StylingInterface {
+interface coords {
+    top?: number;
+    bottom?: number;
+    left?: number;
+    right?: number;
 }
 
 declare type sizes = "sm" | "md" | "lg" | "xl";
+declare type hPositions = "top" | "bottom";
+declare type vPosition = "left" | "right";
+declare type doublePositions = `${hPositions} ${vPosition}`;
+declare type absolutePositions = doublePositions | coords;
 declare type numberSizes = sizes | number;
 declare type borderStyles = "solid" | "dotted" | "dashed" | "double" | "groove" | "ridge" | "inset" | "outset";
 declare type sizedColor = {
     size: sizes;
     color: string;
 };
-declare type numberSizedColor = {
+declare type borderType = {
     size: numberSizes;
     color: string;
     style: borderStyles;
 };
 
-interface ButtonProps {
-    styling?: StylingInterface;
-    func?: () => void;
+interface StylingInterface {
     size?: sizes;
     bg?: string;
-    textColor?: string;
     shadow?: sizedColor;
-    roundness?: numberSizes;
-    border?: numberSizedColor;
+    border?: borderType;
+    textColor?: string;
+    roundness?: numberSizes | "full";
+}
+
+interface ButtonProps {
+    func?: () => void;
+    styling?: StylingInterface;
 }
 declare const Button: React.FC<ButtonProps>;
 
@@ -32,12 +43,14 @@ interface IconButtonProps {
     icon: ReactElement;
     func?: () => void;
     styling?: StylingInterface;
-    size?: sizes;
-    bg?: string;
-    shadow?: sizedColor;
-    border?: numberSizedColor;
-    textColor?: string;
 }
 declare const IconButton: React.FC<IconButtonProps>;
 
-export { Button, IconButton };
+interface FloatingButtonProps {
+    position?: absolutePositions;
+    styling?: StylingInterface;
+    func?: () => void;
+}
+declare const FloatingButton: React.FC<FloatingButtonProps>;
+
+export { Button, FloatingButton, IconButton };
