@@ -9,7 +9,7 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
-  "author": "Alex Eagleson",
+  "author": "Yahia-2010",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.17.5",

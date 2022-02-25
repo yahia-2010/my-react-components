@@ -4,6 +4,8 @@ export type directions = "vertical" | "horizontal";
 
 export type sizes = "sm" | "md" | "lg" | "xl";
 
+export type sizesFull = sizes | "full";
+
 export type hPositions = "top" | "bottom";
 
 export type vPosition = "left" | "right";
@@ -15,6 +17,8 @@ export type doublePositions = `${hPositions} ${vPosition}`;
 export type absolutePositions = doublePositions | coords;
 
 export type numberSizes = sizes | number;
+
+export type numberSizesFull = numberSizes | "full";
 
 export type borderStyles =
   | "solid"

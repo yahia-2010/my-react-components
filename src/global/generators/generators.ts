@@ -1,8 +1,8 @@
 import {
   stringStyle,
-  numberSizes,
   sizedColor,
   borderType,
+  numberSizesFull,
 } from "../types/types";
 import { StylingInterface } from "../interfaces/stylingInterface";
 
@@ -17,7 +17,7 @@ export const textColorGenerator = (color: stringStyle): object => {
 };
 
 export const roundnessGenerator = (
-  roundness: numberSizes | undefined | "full"
+  roundness: numberSizesFull | undefined
 ): object => {
   const generatedRoundness =
     roundness === "sm"
@@ -64,33 +64,32 @@ export const borderGenerator = (border: borderType | undefined): object => {
   return { border: generatedBorder };
 };
 
-export const stylesGenerator = (
-  styling: StylingInterface,
-  excludingArray: string[] = []
-) => {
-  const generatedBg = !excludingArray.includes("bg")
-    ? bgGenerator(styling?.bg)
-    : {};
-  const generatedBorder = !excludingArray.includes("border")
-    ? borderGenerator(styling?.border)
-    : {};
-  const generatedTextColor = !excludingArray.includes("textColor")
-    ? textColorGenerator(styling?.textColor)
-    : {};
-  const generatedRoundness = !excludingArray.includes("roundness")
-    ? roundnessGenerator(styling?.roundness)
-    : {};
-  const generatedShadow = !excludingArray.includes("shadow")
-    ? shadowGenerator(styling?.shadow)
+export const widthGenerator = (width: numberSizesFull | undefined): object => {
+  const generatedWidth =
+    typeof width === "string"
+      ? width === "sm"
+        ? "5rem"
+        : width === "md"
+        ? "15rem"
+        : width === "lg"
+        ? "25rem"
+        : width === "xl"
+        ? "35rem"
+        : width === "full"
+        ? "100%"
+        : "auto"
+      : `${width}px`;
+
+  return { width: generatedWidth };
+};
+
+export const centeringGenerator = (centering: boolean | undefined): object => {
+  const generatedCentering = centering
+    ? {
+        alignItems: "center",
+        justifyContent: "center",
+      }
     : {};
 
-  const styles = {
-    ...generatedBg,
-    ...generatedBorder,
-    ...generatedTextColor,
-    ...generatedRoundness,
-    ...generatedShadow,
-  };
-
-  return styles;
+  return { ...generatedCentering };
 };

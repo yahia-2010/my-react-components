@@ -3,12 +3,15 @@ import { FloatingButton } from "../components";
 export default {
   title: "MyReactComponents/Buttons/FloatingButton",
   component: FloatingButton,
-  argTypes: { func: { action: "handleClick" } },
+  argTypes: {
+    func: { action: "handleClick" },
+    label: { type: "string", defaultValue: "Hello Button!" },
+  },
 };
 
 // Template
 const Template: any = (args: any) => (
-  <FloatingButton {...args}>Hello Button!</FloatingButton>
+  <FloatingButton {...args}>{args.label}</FloatingButton>
 );
 
 // Positions

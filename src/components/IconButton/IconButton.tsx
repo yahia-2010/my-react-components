@@ -1,18 +1,45 @@
 import React, { ReactElement } from "react";
 import { StylingInterface } from "../../global/interfaces/stylingInterface";
-import { stylesGenerator } from "../../global/generators/generators";
+import {
+  sizes,
+  borderType,
+  numberSizes,
+  sizedColor,
+} from "../../global/types/types";
+import { stylesGenerator } from "../../global/generators/stylesGenerator";
 import { sizeGenerator } from "./IconButtonStylesGenerator";
 import "./IconButton.css";
 
 export interface IconButtonProps {
   icon: ReactElement;
   func?: () => void;
-  styling?: StylingInterface;
+  border?: borderType;
+  size?: sizes;
+  textColor?: string;
+  bg?: string;
+  roundness?: numberSizes;
+  shadow?: sizedColor;
 }
 
-const IconButton: React.FC<IconButtonProps> = ({ icon, func, styling }) => {
-  const generatedSize = sizeGenerator(styling?.size);
-  const generatedStyles = stylesGenerator(styling!, ["roundness"]);
+const IconButton: React.FC<IconButtonProps> = ({
+  icon,
+  func,
+  border,
+  size,
+  roundness,
+  shadow,
+  bg,
+  textColor,
+}) => {
+  const styling: StylingInterface = {
+    border,
+    roundness,
+    shadow,
+    bg,
+    textColor,
+  };
+  const generatedSize = sizeGenerator(size);
+  const generatedStyles = stylesGenerator(styling!, ["width", "centering"]);
   return (
     <button
       onClick={func}

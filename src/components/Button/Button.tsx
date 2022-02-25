@@ -7,17 +7,38 @@ import {
   borderType,
 } from "../../global/types/types";
 import { sizeGenerator } from "./ButtonStylesGenerators";
-import { stylesGenerator } from "../../global/generators/generators";
+import { stylesGenerator } from "../../global/generators/stylesGenerator";
 import "./Button.css";
 
 export interface ButtonProps {
   func?: () => void;
-  styling?: StylingInterface;
+  border?: borderType;
+  size?: sizes;
+  textColor?: string;
+  bg?: string;
+  roundness?: numberSizes;
+  shadow?: sizedColor;
 }
 
-const Button: React.FC<ButtonProps> = ({ children, styling, func }) => {
-  const generatedSize = sizeGenerator(styling?.size);
-  const generatedStyles = stylesGenerator(styling!);
+const Button: React.FC<ButtonProps> = ({
+  children,
+  border,
+  size,
+  roundness,
+  shadow,
+  bg,
+  textColor,
+  func,
+}) => {
+  const styling: StylingInterface = {
+    border,
+    textColor,
+    bg,
+    roundness,
+    shadow,
+  };
+  const generatedSize = sizeGenerator(size);
+  const generatedStyles = stylesGenerator(styling!, ["width", "centering"]);
   return (
     <button
       onClick={func}

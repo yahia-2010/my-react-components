@@ -1,27 +1,50 @@
 import React from "react";
 import { absolutePositions } from "../../global/types/types";
 import { StylingInterface } from "../../global/interfaces/stylingInterface";
-import { stylesGenerator } from "../../global/generators/generators";
+import { stylesGenerator } from "../../global/generators/stylesGenerator";
 import {
   sizeGenerator,
   positionGenerator,
 } from "./FloatingButtonStylesGenerator";
+import {
+  sizes,
+  borderType,
+  numberSizes,
+  sizedColor,
+} from "../../global/types/types";
 import "./FloatingButton.css";
 
 export interface FloatingButtonProps {
   position?: absolutePositions;
-  styling?: StylingInterface;
+  border?: borderType;
+  size?: sizes;
+  textColor?: string;
+  bg?: string;
+  roundness?: numberSizes;
+  shadow?: sizedColor;
   func?: () => void;
 }
 
 const FloatingButton: React.FC<FloatingButtonProps> = ({
   position,
   children,
-  styling,
+  border,
+  size,
+  roundness,
+  shadow,
+  bg,
+  textColor,
   func,
 }) => {
-  const generatedSize = sizeGenerator(styling?.size);
-  const generatedStyles = stylesGenerator(styling!);
+  const styling: StylingInterface = {
+    roundness,
+    shadow,
+    bg,
+    textColor,
+    border,
+  };
+  const generatedSize = sizeGenerator(size);
+  const generatedStyles = stylesGenerator(styling!, ["width", "centering"]);
   const generatedPosition = positionGenerator(position);
 
   return (
