@@ -1,5 +1,4 @@
 import React, { ReactElement } from "react";
-import { sizes, sizedColor, borderType } from "../../global/types/types";
 import { StylingInterface } from "../../global/interfaces/stylingInterface";
 import {
   boredGenerator,
@@ -7,35 +6,21 @@ import {
   bgGenerator,
   textColorGenerator,
 } from "../../global/generators/generators";
-import { sizeGenerator } from "./IconButtonPropsGenerator";
+import { sizeGenerator } from "./IconButtonStylesGenerator";
 import "./IconButton.css";
 
 export interface IconButtonProps {
   icon: ReactElement;
   func?: () => void;
   styling?: StylingInterface;
-  size?: sizes;
-  bg?: string;
-  shadow?: sizedColor;
-  border?: borderType;
-  textColor?: string;
 }
 
-const IconButton: React.FC<IconButtonProps> = ({
-  icon,
-  func,
-  size,
-  bg,
-  shadow,
-  border,
-  textColor,
-  styling,
-}) => {
-  const generatedBg = bgGenerator(bg);
-  const generatedShadow = shadowGenerator(shadow);
-  const generatedBorder = boredGenerator(border);
-  const generatedSize = sizeGenerator(size);
-  const generatedTextColor = textColorGenerator(textColor);
+const IconButton: React.FC<IconButtonProps> = ({ icon, func, styling }) => {
+  const generatedBg = bgGenerator(styling?.bg);
+  const generatedShadow = shadowGenerator(styling?.shadow);
+  const generatedBorder = boredGenerator(styling?.border);
+  const generatedSize = sizeGenerator(styling?.size);
+  const generatedTextColor = textColorGenerator(styling?.textColor);
 
   return (
     <button

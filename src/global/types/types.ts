@@ -1,4 +1,16 @@
+import { coords } from "../interfaces/coordsInterfaces";
+
 export type sizes = "sm" | "md" | "lg" | "xl";
+
+export type hPositions = "top" | "bottom";
+
+export type vPosition = "left" | "right";
+
+export type positions = "top" | "bottom" | "left" | "right";
+
+export type doublePositions = `${hPositions} ${vPosition}`;
+
+export type absolutePositions = doublePositions | coords;
 
 export type numberSizes = sizes | number;
 

@@ -1,12 +1,6 @@
-import React, { Children } from "react";
+import React from "react";
+import { absolutePositions } from "../../global/types/types";
 import { StylingInterface } from "../../global/interfaces/stylingInterface";
-import {
-  sizes,
-  numberSizes,
-  sizedColor,
-  borderType,
-} from "../../global/types/types";
-import { sizeGenerator } from "./ButtonStylesGenerators";
 import {
   bgGenerator,
   textColorGenerator,
@@ -14,37 +8,49 @@ import {
   shadowGenerator,
   boredGenerator,
 } from "../../global/generators/generators";
-import "./Button.css";
+import {
+  sizeGenerator,
+  positionGenerator,
+} from "./FloatingButtonStylesGenerator";
+import "./FloatingButton.css";
 
-export interface ButtonProps {
-  func?: () => void;
+export interface FloatingButtonProps {
+  position?: absolutePositions;
   styling?: StylingInterface;
+  func?: () => void;
 }
 
-const Button: React.FC<ButtonProps> = ({ children, styling, func }) => {
+const FloatingButton: React.FC<FloatingButtonProps> = ({
+  position,
+  children,
+  styling,
+  func,
+}) => {
   const generatedSize = sizeGenerator(styling?.size);
   const generatedBg = bgGenerator(styling?.bg);
   const generatedTextColor = textColorGenerator(styling?.textColor);
   const generatedRoundness = roundnessGenerator(styling?.roundness);
   const generatedShadow = shadowGenerator(styling?.shadow);
   const generatedBorder = boredGenerator(styling?.border);
+  const generatedPosition = positionGenerator(position);
 
   return (
     <button
+      className="floatingButton"
       onClick={func}
       style={{
-        ...generatedSize,
-        ...generatedTextColor,
         ...generatedBg,
+        ...generatedBorder,
         ...generatedRoundness,
         ...generatedShadow,
-        ...generatedBorder,
+        ...generatedSize,
+        ...generatedTextColor,
+        ...generatedPosition,
       }}
-      className="Button"
     >
       {children}
     </button>
   );
 };
 
-export default Button;
+export default FloatingButton;

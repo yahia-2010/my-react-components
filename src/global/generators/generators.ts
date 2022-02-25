@@ -16,7 +16,7 @@ export const textColorGenerator = (color: stringStyle): object => {
 };
 
 export const roundnessGenerator = (
-  roundness: numberSizes | undefined
+  roundness: numberSizes | undefined | "full"
 ): object => {
   const generatedRoundness =
     roundness === "sm"
@@ -27,6 +27,8 @@ export const roundnessGenerator = (
       ? "12px"
       : roundness === "xl"
       ? "20px"
+      : roundness === "full"
+      ? "50%"
       : `${roundness}px`;
   return { borderRadius: generatedRoundness };
 };
