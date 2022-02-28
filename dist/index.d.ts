@@ -75,4 +75,14 @@ interface StackProps {
 }
 declare const Stack: React.FC<StackProps>;
 
-export { Button, FloatingButton, IconButton, Stack };
+interface BoxProps {
+    border?: borderType;
+    size?: sizes;
+    textColor?: string;
+    bg?: string;
+    roundness?: numberSizes;
+    shadow?: sizedColor;
+}
+declare const Box: React.FC<BoxProps>;
+
+export { Box, Button, FloatingButton, IconButton, Stack };
