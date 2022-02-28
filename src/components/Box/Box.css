@@ -1,0 +1,8 @@
+.Box {
+  display: grid;
+  place-items: center;
+  place-content: center;
+  border-radius: 10px;
+  width: fit-content;
+  background-color: #eee;
+}

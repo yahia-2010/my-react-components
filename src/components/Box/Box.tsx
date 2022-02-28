@@ -1,17 +1,16 @@
-import React, { Children } from "react";
-import { StylingInterface } from "../../global/interfaces/stylingInterface";
+import React from "react";
 import {
+  borderType,
   sizes,
   numberSizes,
   sizedColor,
-  borderType,
 } from "../../global/types/types";
-import { sizeGenerator } from "./ButtonStylesGenerator";
+import { sizeGenerator } from "./BoxStylesGenerator";
 import { stylesGenerator } from "../../global/generators/stylesGenerator";
-import "./Button.css";
+import { StylingInterface } from "../../global/interfaces/stylingInterface";
+import "./Box.css";
 
-export interface ButtonProps {
-  func?: () => void;
+export interface BoxProps {
   border?: borderType;
   size?: sizes;
   textColor?: string;
@@ -20,7 +19,7 @@ export interface ButtonProps {
   shadow?: sizedColor;
 }
 
-const Button: React.FC<ButtonProps> = ({
+const Box: React.FC<BoxProps> = ({
   children,
   border,
   size,
@@ -28,7 +27,6 @@ const Button: React.FC<ButtonProps> = ({
   shadow,
   bg,
   textColor,
-  func,
 }) => {
   const styling: StylingInterface = {
     border,
@@ -39,18 +37,18 @@ const Button: React.FC<ButtonProps> = ({
   };
   const generatedSize = sizeGenerator(size);
   const generatedStyles = stylesGenerator(styling!, ["width", "centering"]);
+
   return (
-    <button
-      onClick={func}
+    <div
       style={{
         ...generatedSize,
         ...generatedStyles,
       }}
-      className="Button"
+      className="Box"
     >
       {children}
-    </button>
+    </div>
   );
 };
 
-export default Button;
+export default Box;

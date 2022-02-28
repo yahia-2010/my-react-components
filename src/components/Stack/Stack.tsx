@@ -52,7 +52,7 @@ const Stack: React.FC<StackProps> = ({
   };
   const generatedDirection = directionGenerator(direction);
   const generatedWrap = wrapGenerator(wrap);
-  const generatedStyles = stylesGenerator(styling!);
+  const generatedStyles = stylesGenerator(styling!, [], { bg: "transparent" });
   const generatedGap = gapGenerator(gap);
   return (
     <div
