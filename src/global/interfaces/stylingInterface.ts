@@ -1,4 +1,10 @@
-import { sizes, sizedColor, borderType, numberSizesFull } from "../types/types";
+import {
+  sizes,
+  sizedColor,
+  borderType,
+  numberSizesFull,
+  numberSizes,
+} from "../types/types";
 
 export interface StylingInterface {
   size?: sizes;
@@ -9,4 +15,5 @@ export interface StylingInterface {
   roundness?: numberSizesFull;
   width?: numberSizesFull;
   centering?: boolean;
+  gap?: numberSizes;
 }

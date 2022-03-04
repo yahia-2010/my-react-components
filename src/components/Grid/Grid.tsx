@@ -1,33 +1,29 @@
 import React from "react";
-import { StylingInterface } from "../../global/interfaces/stylingInterface";
 import { stylesGenerator } from "../../global/generators/stylesGenerator";
+import { StylingInterface } from "../../global/interfaces/stylingInterface";
 import {
-  directions,
-  numberSizes,
-  sizedColor,
   borderType,
+  numberSizes,
   numberSizesFull,
+  sizedColor,
 } from "../../global/types/types";
-import { directionGenerator, wrapGenerator } from "./StackStylesGenerator";
-import "./Stack.css";
 
-export interface StackProps {
+export interface GridProps {
   border?: borderType;
   width?: numberSizesFull;
   textColor?: string;
   bg?: string;
   roundness?: numberSizes;
   shadow?: sizedColor;
-  direction?: directions;
-  wrap?: boolean;
   gap?: numberSizes;
   centering?: boolean;
+  cells?: number;
+  columns?: number;
+  rows?: number;
 }
 
-const Stack: React.FC<StackProps> = ({
+const Grid: React.FC<GridProps> = ({
   children,
-  direction,
-  wrap,
   gap,
   border,
   roundness,
@@ -36,6 +32,9 @@ const Stack: React.FC<StackProps> = ({
   textColor,
   width,
   centering,
+  cells,
+  columns,
+  rows,
 }) => {
   const styling: StylingInterface = {
     border,
@@ -47,15 +46,11 @@ const Stack: React.FC<StackProps> = ({
     centering,
     gap,
   };
-  const generatedDirection = directionGenerator(direction);
-  const generatedWrap = wrapGenerator(wrap);
   const generatedStyles = stylesGenerator(styling!, [], { bg: "transparent" });
   return (
     <div
       className="stack"
       style={{
-        ...generatedDirection,
-        ...generatedWrap,
         ...generatedStyles,
       }}
     >
@@ -64,4 +59,4 @@ const Stack: React.FC<StackProps> = ({
   );
 };
 
-export default Stack;
+export default Grid;

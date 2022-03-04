@@ -6,6 +6,7 @@ import {
   shadowGenerator,
   widthGenerator,
   centeringGenerator,
+  gapGenerator,
 } from "./generators";
 import { StylingInterface } from "../interfaces/stylingInterface";
 
@@ -43,6 +44,10 @@ export const stylesGenerator = (
     !excludingArray?.includes("centering") && !defaultValues?.centering
       ? centeringGenerator(styling?.centering)
       : centeringGenerator(defaultValues?.centering) || {};
+  const generatedGap =
+    !excludingArray?.includes("gap") && !defaultValues?.gap
+      ? gapGenerator(styling?.gap)
+      : gapGenerator(defaultValues?.gap) || {};
 
   const styles = {
     ...generatedBg,
@@ -52,6 +57,7 @@ export const stylesGenerator = (
     ...generatedShadow,
     ...generatedWidth,
     ...generatedCentering,
+    ...generatedGap,
   };
 
   return styles;
