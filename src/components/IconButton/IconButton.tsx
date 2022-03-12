@@ -16,7 +16,7 @@ export interface IconButtonProps {
   border?: borderType;
   size?: sizes;
   textColor?: string;
-  bg?: string;
+  bgColor?: string;
   roundness?: numberSizes;
   shadow?: sizedColor;
 }
@@ -28,18 +28,22 @@ const IconButton: React.FC<IconButtonProps> = ({
   size,
   roundness,
   shadow,
-  bg,
+  bgColor,
   textColor,
 }) => {
   const styling: StylingInterface = {
     border,
     roundness,
     shadow,
-    bg,
+    bgColor,
     textColor,
   };
   const generatedSize = sizeGenerator(size);
-  const generatedStyles = stylesGenerator(styling!, ["width", "centering"]);
+  const generatedStyles = stylesGenerator(styling!, [
+    "width",
+    "centering",
+    "gap",
+  ]);
   return (
     <button
       onClick={func}

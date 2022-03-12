@@ -7,10 +7,10 @@ import {
 } from "../types/types";
 import { StylingInterface } from "../interfaces/stylingInterface";
 
-export const bgGenerator = (bg: stringStyle): object => {
-  const generatedBg = bg;
+export const bgGenerator = (bgColor: stringStyle): object => {
+  const generatedBg = bgColor;
 
-  return { backgroundColor: bg ? generatedBg : "#eee" };
+  return { backgroundColor: bgColor ? generatedBg : "#eee" };
 };
 
 export const textColorGenerator = (color: stringStyle): object => {
@@ -93,8 +93,11 @@ export const widthGenerator = (width: numberSizesFull | undefined): object => {
 
   const defaultSizeValue = "auto";
 
-  const generatedWidth =
-    typeof width === "string" ? sizeValues[width] : `${width}px`;
+  const generatedWidth = width
+    ? typeof width === "string"
+      ? sizeValues[width]
+      : `${width}px`
+    : defaultSizeValue;
 
   return { width: generatedWidth };
 };

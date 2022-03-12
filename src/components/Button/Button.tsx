@@ -15,7 +15,7 @@ export interface ButtonProps {
   border?: borderType;
   size?: sizes;
   textColor?: string;
-  bg?: string;
+  bgColor?: string;
   roundness?: numberSizes;
   shadow?: sizedColor;
 }
@@ -26,19 +26,23 @@ const Button: React.FC<ButtonProps> = ({
   size,
   roundness,
   shadow,
-  bg,
+  bgColor,
   textColor,
   func,
 }) => {
   const styling: StylingInterface = {
     border,
     textColor,
-    bg,
+    bgColor,
     roundness,
     shadow,
   };
   const generatedSize = sizeGenerator(size);
-  const generatedStyles = stylesGenerator(styling!, ["width", "centering"]);
+  const generatedStyles = stylesGenerator(styling!, [
+    "width",
+    "centering",
+    "gap",
+  ]);
   return (
     <button
       onClick={func}

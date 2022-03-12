@@ -2,17 +2,23 @@ import React from "react";
 import { stylesGenerator } from "../../global/generators/stylesGenerator";
 import { StylingInterface } from "../../global/interfaces/stylingInterface";
 import {
+  cellsGenerator,
+  columnsGenerator,
+  rowsGenerator,
+} from "./GridStylesGenerator";
+import {
   borderType,
   numberSizes,
   numberSizesFull,
   sizedColor,
 } from "../../global/types/types";
+import "./Grid.css";
 
 export interface GridProps {
   border?: borderType;
   width?: numberSizesFull;
   textColor?: string;
-  bg?: string;
+  bgColor?: string;
   roundness?: numberSizes;
   shadow?: sizedColor;
   gap?: numberSizes;
@@ -28,7 +34,7 @@ const Grid: React.FC<GridProps> = ({
   border,
   roundness,
   shadow,
-  bg,
+  bgColor,
   textColor,
   width,
   centering,
@@ -39,19 +45,34 @@ const Grid: React.FC<GridProps> = ({
   const styling: StylingInterface = {
     border,
     textColor,
-    bg,
+    bgColor,
     roundness,
     shadow,
     width,
     centering,
     gap,
   };
-  const generatedStyles = stylesGenerator(styling!, [], { bg: "transparent" });
+  const generatedStyles = stylesGenerator(styling!, [], {
+    bgColor: "transparent",
+  });
+  const generatedCells = cellsGenerator(
+    cells || Math.floor(Math.sqrt(Array(children).length))
+  );
+  const generatedColumns = columnsGenerator(columns);
+  const generatedRows = rowsGenerator(rows);
+
+  console.log("cells", generatedCells);
+  console.log("columns", generatedColumns);
+  console.log("rows", generatedRows);
+
   return (
     <div
-      className="stack"
+      className="grid"
       style={{
         ...generatedStyles,
+        ...generatedCells,
+        ...generatedColumns,
+        ...generatedRows,
       }}
     >
       {children}

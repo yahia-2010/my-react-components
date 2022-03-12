@@ -15,7 +15,7 @@ export interface StackProps {
   border?: borderType;
   width?: numberSizesFull;
   textColor?: string;
-  bg?: string;
+  bgColor?: string;
   roundness?: numberSizes;
   shadow?: sizedColor;
   direction?: directions;
@@ -32,7 +32,7 @@ const Stack: React.FC<StackProps> = ({
   border,
   roundness,
   shadow,
-  bg,
+  bgColor,
   textColor,
   width,
   centering,
@@ -40,7 +40,7 @@ const Stack: React.FC<StackProps> = ({
   const styling: StylingInterface = {
     border,
     textColor,
-    bg,
+    bgColor,
     roundness,
     shadow,
     width,
@@ -49,7 +49,9 @@ const Stack: React.FC<StackProps> = ({
   };
   const generatedDirection = directionGenerator(direction);
   const generatedWrap = wrapGenerator(wrap);
-  const generatedStyles = stylesGenerator(styling!, [], { bg: "transparent" });
+  const generatedStyles = stylesGenerator(styling!, [], {
+    bgColor: "transparent",
+  });
   return (
     <div
       className="stack"

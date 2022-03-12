@@ -91,13 +91,13 @@ ShadowXl.args = {
 
 export const DarkBox = Template.bind({});
 DarkBox.args = {
-  bg: "#393e41",
+  bgColor: "#393e41",
   textColor: "#fff",
 };
 
 export const LightBox = Template.bind({});
 LightBox.args = {
-  bg: "#fbefb",
+  bgColor: "#fbefb",
   textColor: "#000",
 };
 

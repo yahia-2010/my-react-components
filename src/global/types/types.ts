@@ -18,7 +18,7 @@ export type absolutePositions = doublePositions | coords;
 
 export type numberSizes = sizes | number;
 
-export type numberSizesFull = numberSizes | "full";
+export type numberSizesFull = sizesFull | number;
 
 export type borderStyles =
   | "solid"

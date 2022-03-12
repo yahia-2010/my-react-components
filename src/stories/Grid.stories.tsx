@@ -1,8 +1,8 @@
-import { Stack } from "../components";
+import { Grid } from "../components";
 
 export default {
-  title: "MyReactComponents/Containers/Stack",
-  component: Stack,
+  title: "MyReactComponents/Containers/Grid",
+  component: Grid,
   argTypes: {
     children: {
       type: "number",
@@ -13,7 +13,7 @@ export default {
 
 // Template
 const Template: any = (args: any) => (
-  <Stack {...args}>
+  <Grid {...args}>
     {[...Array(args.children)].map((n) => (
       <div
         style={{
@@ -28,33 +28,29 @@ const Template: any = (args: any) => (
         {n}
       </div>
     ))}
-  </Stack>
+  </Grid>
 );
 
-// Directions
+// Cells / Columns / Rows
 
-export const Vertical = Template.bind({});
-Vertical.args = {
-  direction: "vertical",
+export const AutoCells = Template.bind({});
+
+export const Cells16 = Template.bind({});
+Cells16.args = {
+  cells: 16,
+  children: 16,
 };
 
-export const Horizontal = Template.bind({});
-Horizontal.args = {
-  direction: "horizontal",
+export const Columns16 = Template.bind({});
+Columns16.args = {
+  columns: 16,
+  children: 16,
 };
 
-// Wrap
-
-export const Wrap = Template.bind({});
-Wrap.args = {
-  wrap: true,
-  children: 35,
-};
-
-export const NoWrap = Template.bind({});
-NoWrap.args = {
-  wrap: false,
-  children: 35,
+export const Rows16 = Template.bind({});
+Rows16.args = {
+  rows: 1,
+  children: 16,
 };
 
 // Gap

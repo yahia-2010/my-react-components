@@ -19,7 +19,7 @@ export interface FloatingButtonProps {
   border?: borderType;
   size?: sizes;
   textColor?: string;
-  bg?: string;
+  bgColor?: string;
   roundness?: numberSizes;
   shadow?: sizedColor;
   func?: () => void;
@@ -32,19 +32,23 @@ const FloatingButton: React.FC<FloatingButtonProps> = ({
   size,
   roundness,
   shadow,
-  bg,
+  bgColor,
   textColor,
   func,
 }) => {
   const styling: StylingInterface = {
     roundness,
     shadow,
-    bg,
+    bgColor,
     textColor,
     border,
   };
   const generatedSize = sizeGenerator(size);
-  const generatedStyles = stylesGenerator(styling!, ["width", "centering"]);
+  const generatedStyles = stylesGenerator(styling!, [
+    "width",
+    "centering",
+    "gap",
+  ]);
   const generatedPosition = positionGenerator(position);
 
   return (

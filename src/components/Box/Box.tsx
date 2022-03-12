@@ -14,7 +14,7 @@ export interface BoxProps {
   border?: borderType;
   size?: sizes;
   textColor?: string;
-  bg?: string;
+  bgColor?: string;
   roundness?: numberSizes;
   shadow?: sizedColor;
 }
@@ -25,18 +25,22 @@ const Box: React.FC<BoxProps> = ({
   size,
   roundness,
   shadow,
-  bg,
+  bgColor,
   textColor,
 }) => {
   const styling: StylingInterface = {
     border,
     textColor,
-    bg,
+    bgColor: bgColor,
     roundness,
     shadow,
   };
   const generatedSize = sizeGenerator(size);
-  const generatedStyles = stylesGenerator(styling!, ["width", "centering"]);
+  const generatedStyles = stylesGenerator(styling!, [
+    "width",
+    "centering",
+    "gap",
+  ]);
 
   return (
     <div

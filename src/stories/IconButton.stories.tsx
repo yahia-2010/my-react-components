@@ -90,13 +90,13 @@ ShadowXl.args = {
 
 export const DarkIconButton = Template.bind({});
 DarkIconButton.args = {
-  bg: "#393e41",
+  bgColor: "#393e41",
   textColor: "#fff",
 };
 
 export const LightIconButton = Template.bind({});
 LightIconButton.args = {
-  bg: "#fbefb",
+  bgColor: "#fbefb",
   textColor: "#000",
 };
 

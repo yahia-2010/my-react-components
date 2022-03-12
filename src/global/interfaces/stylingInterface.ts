@@ -8,7 +8,7 @@ import {
 
 export interface StylingInterface {
   size?: sizes;
-  bg?: string;
+  bgColor?: string;
   shadow?: sizedColor;
   border?: borderType;
   textColor?: string;
