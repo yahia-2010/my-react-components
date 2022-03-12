@@ -6,7 +6,7 @@ export interface ButtonProps {
     border?: borderType;
     size?: sizes;
     textColor?: string;
-    bg?: string;
+    bgColor?: string;
     roundness?: numberSizes;
     shadow?: sizedColor;
 }
